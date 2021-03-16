@@ -36,7 +36,10 @@ export class UserService {
    * The method is: this.http.delete
    */
 
-
+   remove(product: User): Observable<any>{
+    let url:string = `${this.endpoint}/${product.id}`
+        return this.http.delete<User>( url );
+}
 
   /**
    * Create a user in the database.
