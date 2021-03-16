@@ -38,5 +38,9 @@ export class UserEditorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onUpdate(form: NgForm, item: User): void {
+    this.userService.update(item).subscribe(i=>{
+    })
+  }
 
 }

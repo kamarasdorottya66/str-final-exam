@@ -52,5 +52,9 @@ export class UserService {
    * Update a user in the database.
    * The method is: this.http.patch
    */
+   update(item: User): Observable<any> {
+    return this.http.patch(`${this.endpoint}/${item.id}`, item);
+  }
 
 }
+
