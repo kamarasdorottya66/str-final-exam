@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "Marius Beddows",
-      "email": "mbeddows2@topsy.com",
-      "address": "5 Kennedy Drive",
-      "active": false
-    },
-    {
       "id": 4,
       "name": "Brigitte Morland",
       "email": "bmorland3@biblegateway.com",
