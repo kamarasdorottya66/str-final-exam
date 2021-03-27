@@ -15,6 +15,10 @@ export class UserListComponent implements OnInit {
   users$: Observable<User[]> = this.userService.getAll();
   selectedUserToDelete : User = new User();
 
+  // filter
+  filterPhrase: string = '';
+  filterKey: string = 'name';
+
   constructor(
     private userService: UserService,
   ) { }
