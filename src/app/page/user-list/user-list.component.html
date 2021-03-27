@@ -17,16 +17,16 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th id="id" >#</th>
-          <th id="name" >Name</th>
-          <th id="email" >Email</th>
-          <th id="address">Address</th>
-          <th id="active" >Active</th>
+          <th id="id" (click)="sortData('id')">#</th>
+          <th id="name" (click)="sortData('name')">Name</th>
+          <th id="email" (click)="sortData('email')">Email</th>
+          <th id="address" (click)="sortData('address')">Address</th>
+          <th id="active" (click)="sortData('active')">Active</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey">
+        <tr *ngFor="let user of users$ | async | filter:filterPhrase:filterKey| sorter:sortby">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

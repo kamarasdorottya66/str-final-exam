@@ -19,6 +19,9 @@ export class UserListComponent implements OnInit {
   filterPhrase: string = '';
   filterKey: string = 'name';
 
+  // sorter
+  sortby: string = 'id';
+
   constructor(
     private userService: UserService,
   ) { }
@@ -37,6 +40,13 @@ export class UserListComponent implements OnInit {
         this.users$ = this.userService.getAll();
       }
     );
+  }
+
+  sortData(param: string): void {
+    this.sortby = param;
+    let tableHeaders = document.querySelectorAll('th');
+    tableHeaders.forEach( item => item.classList.remove('active'));
+    document.querySelector('#'+param)?.classList.add('active');
   }
 
 }
