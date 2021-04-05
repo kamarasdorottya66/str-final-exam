@@ -1,7 +1,7 @@
 <div class="row">
   <div *ngIf="user$ | async as user" class="col-6 offset-3 mt-3">
     <h2>Update / Create User</h2>
-    <form #userForm="ngForm">
+    <form #userForm="ngForm"(ngSubmit)="onFormSubmit(user)">
       <input name="id" type="hidden" [(ngModel)]="user.id">
       <div class="form-group">
         <label>Name</label>
@@ -10,7 +10,12 @@
         class="form-control"
         type="text"
         name="name"
+        pattern=".{8,40}" 
+        required 
         [(ngModel)]="user.name">
+        <div [hidden]="userForm.controls.name?.valid || userForm.controls.name?.pristine" class="error__message">
+          A névnek minimum 8 karakternek kell lennie, maximum pedig 40 karakter lehet! 
+        </div>
       </div>
       <div class="form-group">
         <label>Email</label>
@@ -20,7 +25,12 @@
           class="form-control"
           type="text"
           name="email"
+          [pattern]="emailPattern" 
+          required
           [(ngModel)]="user.email">
+          <div [hidden]="userForm.controls.email?.valid || userForm.controls.email?.pristine" class="error__message">
+            Az email formátum hibás!
+          </div>
         </div>
         <div class="form-group">
           <label>Address</label>
@@ -29,7 +39,12 @@
           class="form-control"
           type="text"
           name="address"
+          pattern=".{8,100}" 
+          required 
           [(ngModel)]="user.address">
+          <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine" class="error__message">
+            A címnek minimum 8 karakternek lennie kell maximum 40 karatker! 
+          </div>
       </div>
       <div class="form-group">
         <label>Active</label>

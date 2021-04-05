@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from 'src/app/model/user';
@@ -31,16 +31,33 @@ export class UserEditorComponent implements OnInit {
     })
   );
 
+  emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   constructor(
     private userService: UserService,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
   }
-  onUpdate(form: NgForm, item: User): void {
-    this.userService.update(item).subscribe(i=>{
-    })
+
+  onFormSubmit(user: User): void {
+    try {
+      if (user.id == 0) {
+        this.userService.create(user).subscribe(
+          () => this.router.navigate(['/'])
+        );
+      }
+      else {
+        this.userService.update(user).subscribe(
+          () => this.router.navigate(['/'])
+        );
+      }
+    } catch (error) {
+     
+    }
   }
 
-}
+} 
+  

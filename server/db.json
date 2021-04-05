@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 4,
-      "name": "Brigitte Morland",
+      "name": "Brigitte Morland ",
       "email": "bmorland3@biblegateway.com",
       "address": "4514 Milwaukee Parkway",
       "active": true
@@ -55,13 +55,6 @@
       "email": "shemblinga@narod.ru",
       "address": "0 Kim Street",
       "active": true
-    },
-    {
-      "id": 12,
-      "name": "Gawain McKillop",
-      "email": "gmckillopb@geocities.jp",
-      "address": "0 School Way",
-      "active": false
     },
     {
       "id": 13,
@@ -540,13 +533,6 @@
       "active": true
     },
     {
-      "id": 81,
-      "name": "Alie Dawkins",
-      "email": "adawkins28@altervista.org",
-      "address": "03 La Follette Junction",
-      "active": false
-    },
-    {
       "id": 82,
       "name": "Philipa Ottee",
       "email": "pottee29@miibeian.gov.cn",
@@ -678,6 +664,13 @@
       "email": "mcosbee2r@go.com",
       "address": "0642 Spaight Junction",
       "active": false
+    },
+    {
+      "id": 101,
+      "name": "Kamarás Dorottya",
+      "email": "kamaras.dorottya@gmail.com",
+      "address": "Sehol utca",
+      "active": true
     }
   ]
 }
